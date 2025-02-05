@@ -1,0 +1,51 @@
+/* CSS Layouts Example */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #ecf0f1;
+    --text-color: #333;
+    --padding: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--padding);
+    padding: var(--padding);
+}
+
+.sidebar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--padding);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding);
+}
+
+.box {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: var(--padding);
+    text-align: center;
+}
+
+.header, .footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: var(--padding);
+    position: sticky;
+    top: 0;
+}

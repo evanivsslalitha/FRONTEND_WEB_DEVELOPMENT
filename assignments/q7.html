@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Payslip Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        label, select, input {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: darkgreen;
+        }
+        .output {
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Employee Payslip Calculator</h2>
+
+        <label for="empName">Employee Name:</label>
+        <input type="text" id="empName" required>
+
+        <label for="daysPresent">Days Present (Max 30):</label>
+        <input type="number" id="daysPresent" min="0" max="30" required>
+
+        <label for="housing">Housing Type:</label>
+        <select id="housing">
+            <option value="hostel">Hostel (30%)</option>
+            <option value="room">Room (20%)</option>
+            <option value="home">Home (0%)</option>
+        </select>
+
+        <button onclick="calculatePayslip()">Generate Payslip</button>
+
+        <div class="output" id="payslip"></div>
+    </div>
+
+    <script>
+        function calculatePayslip() {
+            const basicSalary = 37900;
+            const totalDays = 30;
+            let name = document.getElementById("empName").value.trim();
+            let daysPresent = parseInt(document.getElementById("daysPresent").value);
+            let housing = document.getElementById("housing").value;
+
+            // Validation
+            if (name === "" || isNaN(daysPresent) || daysPresent < 0 || daysPresent > totalDays) {
+                alert("Please enter valid employee details.");
+                return;
+            }
+
+            // Salary Calculations
+            let grossSalary = (basicSalary * daysPresent) / totalDays;
+            let dnsDeduction = 0.09 * grossSalary; // 9% deduction on gross salary
+            let hraPercentage = housing === "hostel" ? 0.3 : housing === "room" ? 0.2 : 0;
+            let hra = basicSalary * hraPercentage; // HRA is a fixed percentage of basic salary
+            let netSalary = grossSalary - dnsDeduction + hra;
+
+            // Display Payslip
+            document.getElementById("payslip").innerHTML = `
+                <p>Employee: <strong>${name}</strong></p>
+                <p>Gross Salary: ₹${grossSalary.toFixed(2)}</p>
+                <p>DNS Deduction (9% of Gross): ₹${dnsDeduction.toFixed(2)}</p>
+                <p>HRA (${hraPercentage * 100}% of Basic): ₹${hra.toFixed(2)}</p>
+                <p><strong>Net Salary: ₹${netSalary.toFixed(2)}</strong></p>
+            `;
+        }
+    </script>
+
+</body>
+</html>

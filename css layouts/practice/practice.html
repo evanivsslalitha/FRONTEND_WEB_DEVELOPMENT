@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layouts Example</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --background-color: #ecf0f1;
+            --text-color: #333;
+            --padding: 10px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--padding);
+            padding: var(--padding);
+        }
+
+        .sidebar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: var(--padding);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--padding);
+        }
+
+        .box {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: var(--padding);
+            text-align: center;
+        }
+
+        .header, .footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: var(--padding);
+            position: sticky;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Header Section</div>
+    <div class="container">
+        <div class="sidebar">Sidebar Navigation</div>
+        <div class="content">
+            <div class="box">Flexbox Item 1</div>
+            <div class="box">Flexbox Item 2</div>
+            <div class="box">Flexbox Item 3</div>
+        </div>
+    </div>
+    <div class="footer">Footer Section</div>
+</body>
+</html>
