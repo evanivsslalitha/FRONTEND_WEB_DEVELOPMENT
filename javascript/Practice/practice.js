@@ -69,3 +69,5 @@ for (let key in person) {
     console.log(`${key}: ${person[key]}`);
 }
 console.log("city" in person); // Checking property existence
+// Operators and Expressions
+
