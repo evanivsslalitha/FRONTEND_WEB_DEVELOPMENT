@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Basics - Combined Examples</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Internal CSS */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: hsl(30, 100%, 95%);
+      color: hsl(30, 100%, 20%);
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .intro {
+      color: lightblue;
+      font-size: 1.2em;
+      margin: 10px;
+    }
+
+    /* Descendant Selector */
+    div p {
+      color: darkgreen;
+    }
+
+    /* Child Selector */
+    div > p {
+      color: teal;
+    }
+
+    /* Pseudo-classes */
+    a:hover {
+      color: orange;
+    }
+
+    /* Pseudo-elements */
+    p::first-line {
+      font-weight: bold;
+      color: darkred;
+    }
+
+    /* Attribute Selectors */
+    a[href$=".pdf"] {
+      color: purple;
+      text-decoration: underline;
+    }
+
+    /* Media Query */
+    @media (max-width: 600px) {
+      body {
+        font-size: 14px;
+      }
+    }
+
+    /* Variables */
+    :root {
+      --main-bg-color: lightyellow;
+      --main-text-color: black;
+    }
+
+    section {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Inline Style -->
+  <h1 style="color: navy;">CSS Basics - All Topics</h1>
+
+  <h2>External, Internal, and Inline Styles</h2>
+  <p class="intro">This paragraph demonstrates inline and internal styles.</p>
+
+  <h2>Selectors</h2>
+  <div>
+    <p>This paragraph is styled using a descendant selector.</p>
+    <p>This paragraph is styled using a child selector.</p>
+  </div>
+
+  <h2>Pseudo-classes and Pseudo-elements</h2>
+  <p>Hover over the link to see the pseudo-class in action: 
+    <a href="example.pdf">Download PDF</a>.
+  </p>
+  <p>This paragraph demonstrates pseudo-elements. The first line is bold and dark red.</p>
+
+  <h2>Attribute Selectors</h2>
+  <a href="https://example.com">External Link</a>
+  <a href="document.pdf">PDF Document</a>
+
+  <h2>Media Query</h2>
+  <p>Resize the browser to see font size adjust for smaller screens.</p>
+
+  <h2>CSS Variables</h2>
+  <section>
+    This section uses CSS variables for background and text color.
+  </section>
+
+  <h2>Typography and Colors</h2>
+  <p style="font-size: 1.5em; color: rgb(120, 50, 180);">
+    This paragraph uses inline styling for typography and color.
+  </p>
+
+  <h2>Font Properties</h2>
+  <p style="font-family: 'Courier New', Courier, monospace;">
+    This paragraph uses a monospace font.
+  </p>
+
+  <h2>Box Model</h2>
+  <div style="border: 1px solid black; padding: 10px; margin: 20px; background-color: lightgrey;">
+    This box demonstrates the CSS box model with padding, margin, and a border.
+  </div>
+
+  <h2>Cascading and Specificity</h2>
+  <p style="color: green !important;">
+    This paragraph uses the <code>!important</code> declaration to override other styles.
+  </p>
+</body>
+</html>
