@@ -89,24 +89,3 @@ goodStart();
 goodStart();
 goodStart();
 // functions examples
-<body>
-    <h2>Simple Addition Using JavaScript Function</h2>
-    <label for="num1">Enter first number:</label>
-    <input type="number" id="num1"></input>
-
-    <label for="num2">Enter second number:</label>
-    <input type="number" id="num2"></input>
-
-    <button onclick="calculateSum()">Add Numbers</button>
-
-    <h3>Result: <span id="result"></span></h3>
-
-    <script>
-        function calculateSum() {
-            let num1 = document.getElementById("num1").value;
-            let num2 = document.getElementById("num2").value;
-            let sum = Number(num1) + Number(num2);
-            document.getElementById("result").innerText = sum;
-        }
-    </script>
-</body>
